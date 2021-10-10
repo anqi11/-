@@ -1,0 +1,30 @@
+#include<iostream> 
+using namespace std;
+int GetStep(int n)//递归方法
+{
+if(n<=0)
+{
+cout<<"bug here!"<< endl;    return 0;
+}else if (n <= 2)
+{    return n;
+}else{    return GetStep(n - 1) + GetStep(n - 2);
+}
+}
+int GetStep2(int n)//递推方法
+{
+if (n <= 0)
+{
+    cout << "bug here!" << endl;    return 0;
+}else if (n <= 2)
+{    return n;
+}else{    int loc1 = 1;    int loc2 = 2;    int sum = 2;    for (int i=3 ;i <= n;i++)
+    {       sum += loc1;
+        loc1 = loc2;
+        loc2 = sum;
+    }    return sum;
+}
+}
+int main()
+{
+cout << GetStep(10) << endl;cout << GetStep2(10) << endl;return 0;
+}
