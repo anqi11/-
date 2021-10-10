@@ -1,0 +1,21 @@
+#include<iostream> 
+using namespace std;
+void move(int n, char a, char b, char c)
+{
+if (n == 1)
+cout <<"第1次将" << a << "移动到" << c<<endl;
+else
+{
+move(n - 1, a, c, b);
+cout << "第" << n << "次将" << a << "移动到" << c<<endl;
+move(n - 1, b, a, c);
+}
+}
+int main()
+{
+char a = 'a';
+char b = 'b';
+char c = 'c';
+move(5, a, b, c);
+return 0;
+}
